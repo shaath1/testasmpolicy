@@ -1,0 +1,21 @@
+input {
+      
+udp {
+		port => 5556
+	}
+ }
+ filter {
+     	kv {
+            source => "xdata"
+            field_split => ","
+            value_split => "="
+    	}
+ }
+ output {
+	
+        elasticsearch {
+            index => "f5-pem-i-%{+YYYY.MM.dd}"
+            hosts => ["localhost:9200"]
+        }
+ }
+	
