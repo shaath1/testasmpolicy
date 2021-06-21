@@ -1,0 +1,8 @@
+if [applicationCategoryID] {
+                        translate {
+                                field => "applicationCategoryID"
+                                destination => "applicationCategoryName"
+                                override => true
+                                dictionary_path => "/opt/logstash/PEMmappings/ID2CAT.csv"
+                                fallback => "-"
+                        }
